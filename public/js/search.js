@@ -2,7 +2,7 @@ $(document).ready(function() {
 
   $('#search').click(function() {
 
-    var searchURL = 'http://www.omdbapi.com/?apikey=9847cd57&s=' + $('#mySearch').val();
+    var searchURL = 'https://www.omdbapi.com/?apikey=9847cd57&s=' + $('#mySearch').val();
     console.log(searchURL);
 
 

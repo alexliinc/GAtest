@@ -1,7 +1,6 @@
 $(document).ready(function() {
 
   $('#search').click(function() {
-    //console.log($('#mySearch').val())
 
     var searchURL = 'http://www.omdbapi.com/?apikey=9847cd57&s=' + $('#mySearch').val();
     console.log(searchURL);
@@ -14,7 +13,7 @@ $(document).ready(function() {
         console.log(objResponse)
 
         for (var i = 0; objResponse.Search.length; i++) {
-          document.getElementById("demo").innerHTML += '<div class="listing"><strong>Title: <a href="#" class="modeDetails"><span class="title">' +
+          document.getElementById("contents").innerHTML += '<div class="listing"><strong>Title: <a href="/more-details?imdbID=' + objResponse.Search[i].imdbID + '"class="modeDetails"><span class="title">' +
             objResponse.Search[i].Title + '</span></a></strong>' +
             '<div><strong>Year:</strong> <span class="year">' + objResponse.Search[i].Year + '</span></div>' +
             '<div><strong>Type:</strong> <span class="type">' + objResponse.Search[i].Type + '</span></div>' +
@@ -23,17 +22,11 @@ $(document).ready(function() {
             '</button></a></div></div>';
         }
       }
+
     };
     xhttp.open("GET", searchURL, true);
     xhttp.send();
   });
 
-})
 
-function handleGetSuccess(data) {
-  console.log(data);
-}
-
-function handleGetError(data) {
-  console.log('ERRROR');
-}
+});
